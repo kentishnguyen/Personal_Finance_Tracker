@@ -17,13 +17,14 @@ async def run_pipeline(image_path: str, receipt_id: int):
 
             update_receipt_parsed(receipt_id, ocr_text, valid_data.model_dump())
 
-            return valid_data
+            return ocr_text, valid_data.model_dump()
 
-        except ValidationError:
+        except (ValidationError, Exception) as e:
             attempts += 1
+            print(f"Attempt {attempts} failed: {e}")
+            
             if attempts == 2:
-                raise Exception("LLM failed to return valid JSON after retry")
-            print("Validation Failed. Reattempting")
-
+                mark_receipt_error(receipt_id, ocr_text)
+                raise Exception("LLM failed to produce valid data after retries.")
 
 
