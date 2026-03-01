@@ -6,7 +6,7 @@ load_dotenv()
 
 # Setup - usually you'd put this in a .env file
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 async def extract_receipt(ocr_text: str) -> dict:
     prompt = f"""
     Extract the following details from this receipt OCR text:
@@ -19,7 +19,6 @@ async def extract_receipt(ocr_text: str) -> dict:
     OCR TEXT:
     {ocr_text}
     """
-    
     # Generate content with JSON constraint
     response = model.generate_content(
         prompt,
