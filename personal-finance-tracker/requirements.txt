@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-python-multipart
-pytesseract
-opencv-python
-pillow
-google-generativeai

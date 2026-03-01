@@ -1,18 +1,45 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>AI Expense Tracker</title>
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<h1>AI Expense Tracker</h1>
+<html lang="en">
+<head>
+    <title>AI Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>AI Expense Tracker</h1>
 
-		<input type="file" id="fileInput">
-		<button onClick="uploadReceipt()">Upload Receipt</button>
+    <section class="upload-section">
+        <h2>Upload Receipt</h2>
+        <input type="file" id="fileInput" accept="image/*">
+        <button onclick="uploadReceipt()">Upload Receipt</button>
+        <div id="uploadStatus"></div>
+        <pre id="result"></pre>
+    </section>
 
-		<h2>Result</h2>
-		<pre id="result"></pre>
+    <section class="summary-section">
+        <h2>Spending Summary</h2>
+        <label>
+            Period:
+            <select id="summaryPeriod">
+                <option value="week">Weekly</option>
+                <option value="month">Monthly</option>
+            </select>
+        </label>
+        <button onclick="loadSummary()">Refresh</button>
+        <table id="summaryTable">
+            <thead><tr><th>Period Start</th><th>Receipts</th><th>Total Spend</th></tr></thead>
+            <tbody id="summaryBody"></tbody>
+        </table>
+    </section>
 
-		<script src="app.js"></script>
-	<body>
+    <section class="history-section">
+        <h2>Receipt History</h2>
+        <button onclick="loadHistory()">Refresh</button>
+        <table id="historyTable">
+            <thead><tr><th>ID</th><th>Store</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody id="historyBody"></tbody>
+        </table>
+    </section>
+
+    <script src="app.js"></script>
+</body>
 </html>
