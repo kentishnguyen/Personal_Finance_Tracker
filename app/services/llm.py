@@ -1,9 +1,11 @@
 import google.generativeai as genai
 import os
 import json
+from dotenv import load_dotenv
+load_dotenv()
 
 # Setup - usually you'd put this in a .env file
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-3-flash-preview")
 1
 async def extract_receipt(ocr_text: str) -> dict:
