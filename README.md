@@ -9,6 +9,11 @@ Finvoice is an AI-powered expense tracking app that extracts receipt data from i
 - Receipt history view with status tracking
 - Weekly/monthly spending summary from stored receipts
 
+## Roadmap (Planned)
+
+- Simple Summary enhancements for clearer weekly/monthly budgeting insights
+- Automatic budgeting suggestions based on receipt spending patterns
+
 ## Tech Stack
 
 - Backend: FastAPI
