@@ -2,8 +2,7 @@ from pydantic import ValidationError
 from app.models import ReceiptSchema
 from .ocr import run_ocr
 from .llm import extract_receipt
-from app.db.database import save_receipt
-from db.crud import update_receipt_parsed, mark_receipt_error
+from app.db.crud import update_receipt_parsed, mark_receipt_error
 
 async def run_pipeline(image_path: str, receipt_id: int):
     
